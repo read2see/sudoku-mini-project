@@ -27,4 +27,10 @@ public class SudokuController {
         SudokuBoard board = sudokuService.loadPuzzle(boardName);
         return board.displayBoard();
     }
+
+    @GetMapping(value = "/boards/{boardName}/solve", produces =  MediaType.TEXT_PLAIN_VALUE)
+    public String solveBoard(@PathVariable String boardName) {
+        SudokuBoard board =  sudokuService.solvePuzzle(boardName);
+        return board.displayBoard();
+    }
 }
