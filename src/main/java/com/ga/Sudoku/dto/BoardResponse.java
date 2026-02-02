@@ -13,7 +13,7 @@ public class BoardResponse {
     private String name;
 
     @JsonProperty("is_solved")
-    private boolean isSolved;
+    private boolean solved;
 
     private int[][] grid;
 }
