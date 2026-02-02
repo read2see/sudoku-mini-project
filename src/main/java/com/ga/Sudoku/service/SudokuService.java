@@ -57,6 +57,10 @@ public class SudokuService {
 
     public SudokuBoard solvePuzzle(String boardName) {
         SudokuBoard board = loadPuzzle(boardName);
+        if(board.isSolved()) {
+            log.info("Sudoku board is already solved: {}", boardName);
+            return board;
+        }
         SudokuBoard copy = deepCopy(board);
         if (!sudokuSolver.solve(copy)) {
             throw new InvalidCharacterException("Puzzle has no solution");
